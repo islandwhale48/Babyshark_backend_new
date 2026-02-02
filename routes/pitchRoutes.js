@@ -4,7 +4,7 @@ import {
   getPitch,
   savePitchDraft,
   publishPitch,
-  getExploreFeed,uploadPitchMedia 
+  getExploreFeed,uploadPitchMedia ,getPitchDetail
 } from "../controllers/pitchController.js";
 import { upload } from "../middlewares/upload.js";
 
@@ -12,7 +12,7 @@ const router = express.Router();
 
 /* ✅ SPECIFIC FIRST */
 router.get("/explore/feed", getExploreFeed);
-
+router.get("/:pitchId", getPitchDetail);
 /* other fixed routes */
 router.post("/refine", refinePitch);
 router.post("/save", savePitchDraft);
@@ -25,6 +25,10 @@ router.post(
   ]),
   uploadPitchMedia
 );
+
+
+router.get("/explore/feed", getExploreFeed);
+
 /* ✅ PARAM ROUTE LAST */
 router.get("/:startupId", getPitch);
 

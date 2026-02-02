@@ -22,17 +22,32 @@ Stage: ${form.stage}
 Ask: ${form.ask}
 `;
 }
-export const getExploreFeed = async (req, res) => {
+
+export const getPitchDetail = async (req, res) => {
   try {
-    const posts = await Pitch.find({ published: true })
-      .sort({ createdAt: -1 })
-      .lean();
+    const { pitchId } = req.params;
 
-    res.json(posts);
+    const pitch = await Pitch.findById(pitchId);
 
+    if (!pitch) {
+      return res.status(404).json({ message: "Pitch not found" });
+    }
+
+    res.json(pitch);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Explore fetch failed" });
+    res.status(500).json({ message: "Failed to load pitch detail" });
+  }
+};
+export const getExploreFeed = async (req, res) => {
+  try {
+    const pitches = await Pitch.find({ published: true })
+      .sort({ createdAt: -1 });
+
+    res.json(pitches);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Explore feed failed" });
   }
 };
 
