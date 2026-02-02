@@ -13,6 +13,7 @@ dotenv.config();
 import express from "express";
 import cors from "cors";
 import connectDB from"./db.js"
+import failureSimulatorRoutes from "./routes/failureSimulatorRoutes.js"
 import feasibilityRoutes from "./routes/feasibilityRoutes.js";
 import pitchRoutes from "./routes/pitchRoutes.js"
 import roadmapRoutes from "./routes/roadmapRoutes.js"
@@ -32,6 +33,10 @@ app.use("/api/pitch", pitchRoutes);
 
 
 app.use("/api/compliance", complianceRoutes);
+app.use(
+  "/api/failure-simulator",
+  failureSimulatorRoutes
+);
 
 // ----- HEALTH CHECK (optional but recommended) -----
 app.get("/", (req, res) => {
