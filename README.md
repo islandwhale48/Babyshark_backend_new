@@ -39,12 +39,6 @@ This project is built as a full-stack application using React, Node.js, and AI A
 - Express
 - Groq AI API
 
-### Backend (Production - Vercel)
-- Vercel Serverless Functions
-
----
-GROQ_API_KEY=your_api_key_here
-PORT=5000
 
 🔮 Future Enhancements
 
@@ -60,7 +54,3 @@ PORT=5000
 
 🧾 Multiple project management
 
-Database_creds:
-babyshark_db
-EBxxiRrSUgBVMMcx
-mongodb+srv://babyshark_db:EBxxiRrSUgBVMMcx@cluster0.clvspdv.mongodb.net/?appName=Cluster0
