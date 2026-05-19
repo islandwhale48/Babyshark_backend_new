@@ -1,4 +1,4 @@
-import FailureScenario from "../models/failureSimulator.js";
+import FailureScenario from "../models/failuresimulator.js";
 
 export const getScenarios = async (req, res) => {
   try {
